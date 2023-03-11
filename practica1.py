@@ -39,13 +39,13 @@ def get_data(storage, mutex):
 def producer(storage, index, empty, non_empty, mutex):
     i = 0
     data = random.randint(-1, 25);
-    while i < M and not storage[index.value] == -1:
+    while i < M and not data == -1:
         print (f"producer {current_process().name} produciendo")
         delay(6)
         empty.acquire()
         band = random.randint(-1, 10)
         if band == -1:
-            data = band
+            pass
         else:
             data = data + 1
         add_data(storage, index, int(current_process().name.split('_')[1]),
